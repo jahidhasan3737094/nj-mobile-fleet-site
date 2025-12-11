@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>N&J Mobile Fleet Solutions LLC – Mobile Fleet Maintenance Services</title>
+  <meta name="description" content="N&J Mobile Fleet Solutions LLC provides on-site mobile repair and maintenance services for Amazon DSPs and commercial fleets in New Jersey & Newyork." />
+  <style>
+    :root {
+      --primary: #0b5ed7;
+      --primary-dark: #084298;
+      --accent: #f7b500;
+      --bg: #f5f7fb;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 1px 3px rgba(15,23,42,0.1);
+      backdrop-filter: blur(8px);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 0.93rem;
+    }
+
+    .nav-links a {
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-color: var(--primary);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      gap: 8px;
+      box-shadow: 0 10px 20px rgba(37,99,235,0.25);
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(37,99,235,0.28);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 0.9rem;
+      border: 1px solid var(--primary);
+      color: var(--primary-dark);
+      background: var(--white);
+      cursor: pointer;
+      text-decoration: none;
+      gap: 6px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 40px 0 30px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.08);
+      color: #1d4ed8;
+      font-size: 0.8rem;
+      margin-bottom: 14px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 3vw + 1.2rem, 3rem);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      color: var(--primary-dark);
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      max-width: 540px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span strong {
+      color: var(--primary-dark);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #e0ebff 0, #ffffff 45%);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 18px 40px rgba(15,23,42,0.12);
+      border: 1px solid rgba(148,163,184,0.45);
+    }
+
+    .hero-card h2 {
+      font-size: 1.02rem;
+      margin-bottom: 6px;
+    }
+
+    .hero-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .chip {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      font-size: 0.75rem;
+      background: rgba(255,255,255,0.7);
+    }
+
+    .hero-card-list {
+      font-size: 0.8rem;
+      color: var(--muted);
+      list-style: none;
+    }
+
+    .hero-card-list li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .hero-check {
+      width: 13px;
+      height: 13px;
+      border-radius: 4px;
+      background: #22c55e;
+      display: inline-block;
+      position: relative;
+    }
+
+    .hero-check::after {
+      content: "";
+      width: 7px;
+      height: 3px;
+      border-left: 2px solid white;
+      border-bottom: 2px solid white;
+      transform: rotate(-45deg);
+      position: absolute;
+      top: 4px;
+      left: 3px;
+    }
+
+    /* Sections */
+    section {
+      padding: 40px 0;
+    }
+
+    section:nth-of-type(odd) {
+      background: #ffffff;
+    }
+
+    section:nth-of-type(even) {
+      background: var(--bg);
+    }
+
+    .section-header {
+      margin-bottom: 24px;
+    }
+
+    .section-header h2 {
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 640px;
+    }
+
+    /* Services grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 16px 15px 18px;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.05);
+      border: 1px solid rgba(226,232,240,0.9);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .card ul {
+      margin-top: 8px;
+      padding-left: 16px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .pill-label {
+      display: inline-flex;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(14,165,233,0.09);
+      color: #0369a1;
+      font-size: 0.75rem;
+      margin-bottom: 6px;
+    }
+
+    /* Two-column layout */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+      gap: 26px;
+      align-items: flex-start;
+    }
+
+    .stat-box {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 10px;
+      align-items: center;
+    }
+
+    .stat-number {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Compliance */
+    .compliance-list {
+      list-style: none;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .compliance-list li {
+      margin-bottom: 6px;
+    }
+
+    .compliance-list strong {
+      color: var(--text);
+    }
+
+    /* Contact */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+      gap: 26px;
+      align-items: flex-start;
+    }
+
+    form {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 18px 16px;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.05);
+      border: 1px solid rgba(226,232,240,0.9);
+    }
+
+    label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px 9px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .contact-details {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .contact-details p {
+      margin-bottom: 8px;
+    }
+
+    .contact-details strong {
+      color: var(--text);
+    }
+
+    footer {
+      background: #020617;
+      color: #9ca3af;
+      font-size: 0.8rem;
+      padding: 14px 0;
+      margin-top: 10px;
+    }
+
+    footer .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    footer a {
+      color: #e5e7eb;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .two-col,
+      .contact-wrapper,
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .nav-links {
+        display: none; /* keep it simple for now */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="logo">
+          N&amp;J <span>Mobile</span> Fleet Solutions LLC
+        </div>
+        <nav class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#compliance">Fleet Companies</a>
+          <a href="#service-area">Service Area</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="btn-primary">Request Service</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Mobile fleet maintenance - we come to your yard
+          </div>
+         <h1>
+		 On-Site Repair &amp; Maintenance for
+		<span>Amazon DSP, Commercial Fleets, EMS Ambulances, School Buses, UniFirst Vehicles &amp; Budget Rental Vans</span>
+		</h1>
+          <p>
+            N&amp;J Mobile Fleet Solutions LLC provides mobile diagnostics, repair, and
+            preventive maintenance for delivery vans and light-duty commercial vehicles.
+            All work is performed on-site at your facility by appointment - no walk-ins.
+          </p>
+
+          <div class="hero-actions">
+            <a href="tel:9144039910" class="btn-primary">
+              Call dispatch: (914) 403-9910
+            </a>
+            <a href="#contact" class="btn-outline">
+              Email work order / estimate request
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span><strong>Legal Name:</strong> N&amp;J Mobile Fleet Solutions LLC</span>
+            <span><strong>Location:</strong> New Jersey (mobile service only)</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Quick company facts">
+          <h2>Vendor Profile Snapshot</h2>
+          <p>Information commonly requested by fleet management companies.</p>
+
+			<div class="hero-chip-row">
+			  <span class="chip">Mobile Only – No Public Shop</span>
+			  <span class="chip">Amazon DSP</span>
+			  <span class="chip">EMS & Ambulance Fleets</span>
+			  <span class="chip">School Bus Fleets</span>
+			  <span class="chip">UniFirst Vehicles</span>
+			  <span class="chip">Budget Rental Vans</span>
+			  <span class="chip">Commercial Fleets Welcome</span>
+			</div>
+
+			<ul class="hero-card-list">
+		  <li>
+			<span class="hero-check"></span>
+			<span><strong>Legal Entity:</strong> N&amp;J Mobile Fleet Solutions LLC</span>
+		  </li>
+		  <li>
+			<span class="hero-check"></span>
+			<span><strong>Entity Type:</strong> New Jersey Limited Liability Company</span>
+		  </li>
+		  <li>
+			<span class="hero-check"></span>
+			<span><strong>EIN:</strong> Available on W-9 upon request</span>
+		  </li>
+		  <li>
+			<span class="hero-check"></span>
+			<span><strong>Business Address:</strong> 971 US Highway 202N, Ste N, Branchburg, NJ 08876</span>
+		  </li>
+		  <li>
+			<span class="hero-check"></span>
+			<span><strong>Coverage:</strong> Mobile service at fleet facilities</span>
+		  </li>
+		</ul>
+
+        </aside>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Mobile Fleet Services</h2>
+          <p>
+            We focus on keeping high-utilization delivery and commercial vans safely on the road. 
+            Service is scheduled around your fleet’s operating hours to minimize downtime.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <span class="pill-label">Diagnostics &amp; Inspections</span>
+            <h3>On-Site Diagnostics</h3>
+            <p>
+              Full visual and mechanical inspections performed at your yard, including road-test when required.
+            </p>
+            <ul>
+              <li>Brake, steering &amp; suspension checks</li>
+              <li>Warning light &amp; drivability diagnostics</li>
+              <li>Pre-purchase / intake inspections</li>
+              <li>Condition reports for fleet platforms</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <span class="pill-label">Repair &amp; Maintenance</span>
+            <h3>Mechanical Repairs</h3>
+            <p>
+              Mobile repair solutions for Amazon-style step vans, cutaways, and cargo vans.
+              Parts can be customer-supplied or sourced through our parts partners.
+            </p>
+            <ul>
+              <li>Brakes, rotors, calipers, hubs &amp; bearings</li>
+              <li>Cooling system &amp; radiator related repairs</li>
+              <li>Starters, alternators, batteries &amp; cables</li>
+              <li>Doors, latches, locks, mirrors, lighting &amp; safety items</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <span class="pill-label">Preventive Maintenance</span>
+            <h3>Scheduled PM Programs</h3>
+            <p>
+              Recurring preventive maintenance tailored to delivery fleets and high-mileage commercial vehicles.
+            </p>
+            <ul>
+              <li>Oil &amp; filter services per OEM schedule</li>
+              <li>Safety &amp; DOT-style checks</li>
+              <li>Fluids &amp; filters, belts &amp; hoses</li>
+              <li>PM tracking support for fleet portals</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works">
+      <div class="container two-col">
+        <div>
+          <div class="section-header">
+            <h2>How Our Mobile Service Works</h2>
+            <p>
+              We are a mobile-only operation. All work is completed at your location by appointment –
+              ideal for Amazon DSPs and fleet operators who cannot afford vehicle downtime.
+            </p>
+          </div>
+
+          <ol style="font-size:0.9rem; color:var(--muted); padding-left:18px;">
+            <li><strong>Send a Work Request:</strong> Email RO details, pictures, or a portal work order.</li>
+            <li><strong>We Confirm Scope &amp; Parts:</strong> We review the concern, plan parts and labor, and schedule.</li>
+            <li><strong>On-Site Visit:</strong> Our technician comes to your yard/facility at the agreed time.</li>
+            <li><strong>Documentation:</strong> We provide notes, before/after pictures, and invoice details as needed.</li>
+            <li><strong>Portal Submission:</strong> If required, we help you format the repair order for your fleet platform.</li>
+          </ol>
+        </div>
+
+        <div>
+          <div class="card">
+            <h3>Why DSPs &amp; Fleet Operators Choose Us</h3>
+            <p style="font-size:0.87rem; color:var(--muted); margin-top:6px;">
+              We are built around the needs of delivery and commercial fleets - fast turnaround, clear communication,
+              and accurate documentation for fleet billing.
+            </p>
+
+            <div style="margin-top:14px;">
+              <div class="stat-box">
+                <div>
+                  <div class="stat-number">Mobile-Only</div>
+                  <div class="stat-label">No walk-in traffic, focused entirely on fleet clients.</div>
+                </div>
+              </div>
+              <div class="stat-box">
+                <div>
+                  <div class="stat-number">Fleet-Focused</div>
+                  <div class="stat-label">Experienced with Amazon DSP style operations and schedules.</div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPLIANCE / FLEET COMPANIES -->
+    <section id="compliance">
+      <div class="container">
+        <div class="section-header">
+          <h2>Information for Fleet Management Companies</h2>
+          <p>
+            Below is the basic profile information typically requested during vendor onboarding.
+            Supporting documents (W-9, state registration, EIN letter, insurance) are available upon request.
+          </p>
+        </div>
+
+        <div class="card">
+          <ul class="compliance-list">
+            <li><strong>Legal Business Name:</strong> N&amp;J Mobile Fleet Solutions LLC</li>
+            <li><strong>Entity Type:</strong> Limited Liability Company (LLC)</li>
+            <li><strong>State of Formation:</strong> New Jersey, USA</li>
+            <li><strong>Business Model:</strong> Mobile fleet repair &amp; maintenance – no public retail shop.</li>
+            <li><strong>Primary Clients:</strong> Amazon Delivery Service Partners (DSPs) and commercial fleet operators.</li>
+            <li><strong>Service Category:</strong> Automotive maintenance &amp; light-duty mechanical repair.</li>
+            <li><strong>Tax ID / EIN:</strong> Provided on signed W-9 and CP-575 upon request.</li>
+            <li><strong>Business Registration:</strong> New Jersey business and employer registrations completed.</li>
+            <li><strong>Insurance:</strong> Commercial coverage information available for onboarding teams.</li>
+            <li><strong>Documentation:</strong> Work orders include concern, cause, correction and parts/labor breakdown suitable for fleet portals.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE AREA -->
+    <section id="service-area">
+      <div class="container two-col">
+        <div>
+          <div class="section-header">
+            <h2>Service Area</h2>
+            <p>
+              We currently serve fleet yards and facilities in New Jersey, New York and nearby areas, with a focus
+              on commercial fleets that require regular mobile support.
+            </p>
+          </div>
+
+          <ul style="font-size:0.9rem; color:var(--muted); padding-left:18px;">
+            <li>New Jersey ,New York - primary service area</li>
+            <li>Surrounding regions by prior arrangement</li>
+            <li>Work performed at client yards, parking lots, and fleet facilities</li>
+            <li>No walk-in retail location - service is by scheduled appointment only</li>
+          </ul>
+        </div>
+
+		<div class="card">
+		  <h3>Business Address (Mailing / Registered)</h3>
+		  <p style="font-size:0.87rem; color:var(--muted); margin-top:6px;">
+			This is our official business and mailing address. All repairs are performed
+			<strong>on-site at customer locations</strong>; vehicles are not dropped off at this address.
+		  </p>
+
+		  <p style="margin-top:10px; font-size:0.9rem;">
+			<strong>N&amp;J Mobile Fleet Solutions LLC</strong><br />
+			971 US Highway 202N, Ste N<br />
+			Branchburg, NJ 08876<br />
+			United States
+		  </p>
+		</div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container contact-wrapper">
+        <div>
+          <div class="section-header">
+            <h2>Request Service or Vendor Paperwork</h2>
+            <p>
+              Use the form or contact details below to request a quote, schedule mobile service,
+              or ask for our W-9, insurance certificate, and registration documents for vendor setup.
+            </p>
+          </div>
+
+		 <form action="https://formspree.io/f/xgvgnqoz" method="POST">
+		  <label for="name">Name</label>
+		  <input id="name" name="name" type="text" placeholder="Your name" required />
+
+		  <label for="company">Company</label>
+		  <input id="company" name="company" type="text" placeholder="Company" />
+
+		  <label for="email">Email</label>
+		  <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+		  <label for="message">Message / Work Request</label>
+		  <textarea id="message" name="message" placeholder="Brief description of your fleet and the services you need." required></textarea>
+
+		  <!-- Optional subject line -->
+		  <input type="hidden" name="_subject" value="New Service Request - N&J Mobile Fleet Solutions" />
+
+		  <button type="submit" class="btn-primary" style="margin-top:4px;">
+			Submit
+		  </button>
+
+  <!-- Optional success message -->
+  <p style="font-size:0.82rem; color:var(--muted); margin-top:6px;">
+    We will respond to your request shortly.
+  </p>
+</form>
+
+        </div>
+
+        <div class="contact-details">
+          <p><strong>Dispatch / Service Phone:</strong><br />(914) 403-9910</p>
+          <p><strong>Service Email:</strong><br />njmobilefleetsolutions@gmail.com</p>
+          <p><strong>Business Hours:</strong><br />Service by appointment. Flexible scheduling available for night and off-peak work.</p>
+          
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> N&amp;J Mobile Fleet Solutions LLC. All rights reserved.</span>
+      <span>Mobile fleet repair &amp; maintenance - New Jersey ,New York.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
